@@ -28,8 +28,9 @@ module.exports = {
             fs.unlinkSync(file.path)
 
             return db.query(`
-            DELETE FROM files WHERE id = $1
-        `, [id])
+                DELETE FROM files WHERE id = $1
+            `, [id])
+            
         }catch(err) {
             console.error(err)
         }
