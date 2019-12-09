@@ -66,10 +66,24 @@ module.exports = {
         const keys = Object.keys(req.body)
 
         for(key of keys) {
-            if (req.body[key] == "") {
+            if (req.body[key] == "" && key != "removed_files") {
                 return res.send('Please, fill all fields!')
             }
         }
+
+
+        if (req.body.removed_files) {
+            // 1,2,3,
+            const removedFiles = req.body.removed_files.split(",") // [1,2,3,]
+            const lastIndex = removedFiles.length - 1
+            removedFiles.splice(lastIndex, 1) // [1,2,3]
+
+            const removedFilesPromise = removedFiles.map(id => File.delete(id))
+
+            await Promise.all(removedFilesPromise)
+        }
+
+
 
         req.body.price = req.body.price.replace(/\D/g, "")
 
