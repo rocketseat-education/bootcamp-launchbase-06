@@ -428,6 +428,7 @@ form .item #photos-preview img {
     background: white;
 
     position: absolute;
+    top: -80px;
     right: 0;
 
     display: flex;
