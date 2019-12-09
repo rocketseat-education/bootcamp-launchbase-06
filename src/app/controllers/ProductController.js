@@ -38,6 +38,9 @@ module.exports = {
         return res.redirect(`/products/${productId}/edit`)
 
     },
+    show(req,res) {
+        return res.render("products/show")
+    },
     async edit(req, res) {
         let results = await Product.find(req.params.id)
         const product = results.rows[0]
