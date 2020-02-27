@@ -27,3 +27,7 @@ CREATE TABLE "files" (
 ALTER TABLE "products" ADD FOREIGN KEY ("category_id") REFERENCES "categories" ("id");
 
 ALTER TABLE "files" ADD FOREIGN KEY ("product_id") REFERENCES "products" ("id");
+
+INSERT INTO categories (name) VALUES ('eletrônicos');
+
+INSERT INTO categories (name) VALUES ('comida');
